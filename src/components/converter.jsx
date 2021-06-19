@@ -1,6 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
@@ -72,7 +70,8 @@ function classNames(...classes) {
 }
 
 function Converterapp() {
-  const [selected, setSelected] = useState(people[3]);
+  const [selectedOne, setSelectedOne] = useState(people[3]);
+  const [selectedTwo, setSelectedTwo] = useState(people[3]);
 
   const onSubmit = (e) => {
     console.log(e);
@@ -102,7 +101,7 @@ function Converterapp() {
               placeholder=""
             />
           </div>
-          <Listbox value={selected} onChange={setSelected}>
+          <Listbox value={selectedOne} onChange={setSelectedOne}>
             {({ open }) => (
               <>
                 <Listbox.Label className="block text-sm font-medium text-gray-700">
@@ -112,12 +111,12 @@ function Converterapp() {
                   <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     <span className="flex items-center">
                       <img
-                        src={selected.avatar}
+                        src={selectedOne.avatar}
                         alt=""
                         className="flex-shrink-0 h-6 w-6 rounded-full"
                       />
                       <span className="ml-3 block truncate">
-                        {selected.name}
+                        {selectedOne.name}
                       </span>
                     </span>
                     <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -152,7 +151,7 @@ function Converterapp() {
                           }
                           value={person}
                         >
-                          {({ selected, active }) => (
+                          {({ selectedOne, active }) => (
                             <>
                               <div className="flex items-center">
                                 <img
@@ -162,7 +161,9 @@ function Converterapp() {
                                 />
                                 <span
                                   className={classNames(
-                                    selected ? 'font-semibold' : 'font-normal',
+                                    selectedOne
+                                      ? 'font-semibold'
+                                      : 'font-normal',
                                     'ml-3 block truncate'
                                   )}
                                 >
@@ -170,7 +171,7 @@ function Converterapp() {
                                 </span>
                               </div>
 
-                              {selected ? (
+                              {selectedOne ? (
                                 <span
                                   className={classNames(
                                     active ? 'text-white' : 'text-indigo-600',
@@ -195,7 +196,7 @@ function Converterapp() {
           </Listbox>
           <div>icon</div>
           <div>
-            <Listbox value={selected} onChange={setSelected}>
+            <Listbox value={selectedTwo} onChange={setSelectedTwo}>
               {({ open }) => (
                 <>
                   <Listbox.Label className="block text-sm font-medium text-gray-700">
@@ -205,12 +206,12 @@ function Converterapp() {
                     <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                       <span className="flex items-center">
                         <img
-                          src={selected.avatar}
+                          src={selectedTwo.avatar}
                           alt=""
                           className="flex-shrink-0 h-6 w-6 rounded-full"
                         />
                         <span className="ml-3 block truncate">
-                          {selected.name}
+                          {selectedTwo.name}
                         </span>
                       </span>
                       <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -245,7 +246,7 @@ function Converterapp() {
                             }
                             value={person}
                           >
-                            {({ selected, active }) => (
+                            {({ selectedTwo, active }) => (
                               <>
                                 <div className="flex items-center">
                                   <img
@@ -255,7 +256,7 @@ function Converterapp() {
                                   />
                                   <span
                                     className={classNames(
-                                      selected
+                                      selectedTwo
                                         ? 'font-semibold'
                                         : 'font-normal',
                                       'ml-3 block truncate'
@@ -265,7 +266,7 @@ function Converterapp() {
                                   </span>
                                 </div>
 
-                                {selected ? (
+                                {selectedTwo ? (
                                   <span
                                     className={classNames(
                                       active ? 'text-white' : 'text-indigo-600',
