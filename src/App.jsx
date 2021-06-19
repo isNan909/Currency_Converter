@@ -5,7 +5,7 @@ import Converter from './components/converter';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <div className="max-w-4xl  m-auto">
         <Converter />
       </div>
