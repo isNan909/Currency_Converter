@@ -70,8 +70,9 @@ function classNames(...classes) {
 }
 
 function Converterapp() {
-  const [selectedOne, setSelectedOne] = useState(people[3]);
-  const [selectedTwo, setSelectedTwo] = useState(people[3]);
+  const [selectedOne, setSelectedOne] = useState(people[0]);
+  const [selectedTwo, setSelectedTwo] = useState(people[0]);
+  const [amount, setAmount] = useState('');
 
   const onSubmit = (e) => {
     console.log(e);
@@ -88,18 +89,22 @@ function Converterapp() {
 
   return (
     <div>
-      <section className="mt-2"></section>
-      <section className="mt-14">
+      <section className="pt-14 bg-white px-6 pb-14 shadow">
+        <h1 className="text-black text-2xl mb-10 font-semibold">
+          Currency Converter Online
+        </h1>
         <form onSubmit={onSubmit}>
-          <div className="flex flex-row mb-6 gap-9 items-center">
+          <div className="flex flex-row mb-6 gap-9 items-end">
             <div className="flex-1">
               <label className="font-bold text-sm mb-3 block" htmlFor="text">
                 Amount
               </label>
               <input
                 type="text"
-                value=""
-                className="w-full border-2 rounded-sm min-h-50 pl-3 pr-10 py-2"
+                className="focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 w-full border-2 rounded-sm min-h-50 pl-3 pr-10 py-2"
+                value={amount}
+                size="lg"
+                onChange={(e) => setAmount(e.target.value)}
                 placeholder="Enter amount"
               />
             </div>
@@ -314,11 +319,11 @@ function Converterapp() {
               </Listbox>
             </div>
           </div>
-          <div className="flex justify-between mt-6">
+          <div className="flex justify-between mt-10">
             <div></div>
             <div>
-              <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-green-500 hover:bg-green-600">
-                Convert Amount
+              <button className="uppercase inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-green-500 hover:bg-green-600">
+                Convert
               </button>
             </div>
           </div>
