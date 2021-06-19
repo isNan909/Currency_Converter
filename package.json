@@ -1,11 +1,16 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": "Ishan Manandhar",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "build": "vite",
+    "serve": "vite preview",
+    "start": "vite"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
+    "@heroicons/react": "^1.0.1",
+    "dotenv": "^10.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
