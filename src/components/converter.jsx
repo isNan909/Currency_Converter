@@ -16,10 +16,7 @@ function Converterapp() {
   const [selectedTwo, setSelectedTwo] = useState([]);
   const [allList, setAllList] = useState([]);
   const [amount, setAmount] = useState('');
-
-  const onSubmit = (e) => {
-    console.log(e);
-  };
+  const [exchange, setExchange] = useState({});
 
   useEffect(() => {
     mapCurrencyData();
@@ -69,6 +66,40 @@ function Converterapp() {
     setSelectedTwo(countryListWithFlag[149]);
     setAllList(countryListWithFlag);
     setIsLoaded(false);
+  }
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.get(
+        CONVERSTION_URL +
+          `from=${selectedOne.iso}&to=${selectedTwo.iso}&amount=${amount}&decimal_places=2`,
+        {
+          auth: {
+            username: USERNAME,
+            password: PASSWORD,
+          },
+        }
+      );
+      const calculated = await response.data;
+      setExchange({
+        from: selectedOne,
+        to: selectedTwo,
+        amount: amount,
+        result: calculated.to[0].mid,
+      });
+    } catch (err) {
+      console.log(`Unable to fetch curriencies: ${err}`);
+    }
+  }
+
+  function checkObj(obj) {
+    for (let prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
+    return obj;
   }
 
   return (
@@ -314,8 +345,26 @@ function Converterapp() {
                   </Listbox>
                 </div>
               </div>
-              <div className="flex justify-between mt-10">
-                <div></div>
+              <div className="flex justify-between mt-10  items-center">
+                <div>
+                  {!checkObj(exchange) && (
+                    <div>
+                      <div className="flex gap-1 mb-1">
+                        <p className="font-semibold text-sm text-gray-400">
+                          {exchange.amount} &nbsp;
+                          {exchange.from.currency_name}is equals to
+                        </p>
+                      </div>
+                      <div className="flex gap-1 font-normal items-baseline">
+                        <p className="text-5xl font-bold"> {exchange.result}</p>
+                        <span className="text-xs font-bold">
+                          {' '}
+                          {exchange.to.iso}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div>
                   <button className="uppercase inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-green-500 hover:bg-green-600">
                     Convert
