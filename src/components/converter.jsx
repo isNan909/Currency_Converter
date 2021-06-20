@@ -350,23 +350,21 @@ function Converterapp() {
                   {!checkObj(exchange) && (
                     <div>
                       <div className="flex gap-1 mb-1">
-                        <p className="font-semibold text-sm text-gray-400">
+                        <p className="font-semibold text-sm text-gray-500">
                           {exchange.amount} &nbsp;
-                          {exchange.from.currency_name}is equals to
+                          {exchange.from.currency_name} =
                         </p>
                       </div>
                       <div className="flex gap-1 font-normal items-baseline">
-                        <p className="text-5xl font-bold"> {exchange.result}</p>
-                        <span className="text-xs font-bold">
-                          {' '}
-                          {exchange.to.iso}
-                        </span>
+                        <p className="text-5xl font-bold">
+                          {exchange.result} {exchange.to.iso}
+                        </p>
                       </div>
                     </div>
                   )}
                 </div>
                 <div>
-                  <button className="uppercase inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-green-500 hover:bg-green-600">
+                  <button className="inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-green-500 hover:bg-green-600">
                     Convert
                   </button>
                 </div>
