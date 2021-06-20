@@ -102,6 +102,11 @@ function Converterapp() {
     return obj;
   }
 
+  function swapConversion() {
+    setSelectedOne(selectedTwo);
+    setSelectedTwo(selectedOne);
+  }
+
   return (
     <div>
       {isLoaded ? (
@@ -231,7 +236,10 @@ function Converterapp() {
                     )}
                   </Listbox>
                 </div>
-                <div className="border-2 border-blue-100 rounded-full p-4 cursor-pointer hover:border-green-300">
+                <div
+                  onClick={() => swapConversion()}
+                  className="border-2 border-blue-100 rounded-full p-4 cursor-pointer hover:border-green-300"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
