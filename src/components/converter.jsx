@@ -125,7 +125,7 @@ function Converterapp() {
         <h1 className="text-black text-2xl mb-10 font-semibold">
           Currency Exchange Rate
         </h1>
-        {/* <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
           <div className="flex flex-row mb-6 gap-9 items-end">
             <div className="flex-1">
               <label className="font-bold text-sm mb-3 block" htmlFor="text">
@@ -359,7 +359,7 @@ function Converterapp() {
               </button>
             </div>
           </div>
-        </form> */}
+        </form>
       </section>
     </div>
   );
