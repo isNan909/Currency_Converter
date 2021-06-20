@@ -392,7 +392,13 @@ function Converterapp() {
                   )}
                 </div>
                 <div>
-                  <button className="inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-green-500 hover:bg-green-600">
+                  <button
+                    className={
+                      !amount
+                        ? 'cursor-not-allowed inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-gray-300'
+                        : 'inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-green-500 hover:bg-green-600'
+                    }
+                  >
                     Convert
                   </button>
                 </div>
