@@ -28,7 +28,7 @@ function Converterapp() {
 
   async function getCurrencyData() {
     try {
-      const response = await axios.get('https://xecdapi.xe.com/v1/currencies', {
+      const response = await axios.get(CURRENCY_URL, {
         auth: {
           username: USERNAME,
           password: PASSWORD,
@@ -43,7 +43,7 @@ function Converterapp() {
 
   async function getCountriesData() {
     try {
-      const response = await axios.get('https://restcountries.eu/rest/v2/all');
+      const response = await axios.get(COUNTRIES_URL);
       const flags = await response.data;
       return flags;
     } catch (err) {

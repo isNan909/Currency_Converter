@@ -9,6 +9,8 @@ export default defineConfig({
   plugins: [reactRefresh()],
   define: {
     'USERNAME': `"${process.env.VITE_REACT_USERNAME}"`,
-    'PASSWORD': `"${process.env.VITE_REACT_PASSWORD}"`
+    'PASSWORD': `"${process.env.VITE_REACT_PASSWORD}"`,
+    'CURRENCY_URL': `"${process.env.VITE_CURRENCY_URL}"`,
+    'COUNTRIES_URL': `"${process.env.VITE_COUNTRIES_URL}"`
   },
 });
