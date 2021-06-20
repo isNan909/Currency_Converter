@@ -8,7 +8,7 @@ dotenv.config();
 export default defineConfig({
   plugins: [reactRefresh()],
   define: {
-    'VITE_USERNAME': `"${process.env.VITE_REACT_USERNAME}"`,
-    'VITE_PASSWORD': `"${process.env.VITE_REACT_PASSWORD}"`
+    'USERNAME': `"${process.env.VITE_REACT_USERNAME}"`,
+    'PASSWORD': `"${process.env.VITE_REACT_PASSWORD}"`
   },
 });

@@ -6,7 +6,7 @@ import Converter from './components/converter';
 function App() {
   return (
     <div>
-      <div className="max-w-4xl  m-auto pb-6 mt-14">
+      <div className="max-w-4xl  m-auto pb-6 pt-14">
         <Converter />
       </div>
     </div>
